@@ -66,7 +66,6 @@ pub fn main() anyerror!u8 {
 
     const maxBufLen = 1024;
     var buf: [maxBufLen]u8 = undefined;
-    var total_bytes: usize = 0;
 
     while (true) {
         const byte_count = try cn.read(&buf);
@@ -75,7 +74,6 @@ pub fn main() anyerror!u8 {
         try stdout.print("{}", .{buf[0..byte_count]});
 
         buf = undefined;
-        total_bytes += byte_count;
     }
 
     return 0;
